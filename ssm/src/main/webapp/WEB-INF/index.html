@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>首页</title>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	var username=document.cookie;
+	function getCookie(name){
+		var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+		if(arr=document.cookie.match(reg)){
+			return arr[2];
+		}else{
+			return null;
+		}
+	}
+	
+	$(document).ready(function(){
+		if(getCookie("username")!=null){
+		    var get=getCookie("username");
+			$("#welcome").html("<img src=\"image/1.png\"><h6 align='right'>"+get+"</h6>");
+		}else{
+			$("#welcome").html("<a href='tologin'>请先登录</a>");
+		}
+	});
+</script>
+</head>
+<body>
+	<p id="welcome">欢迎光临</p>
+</body>
+</html>
